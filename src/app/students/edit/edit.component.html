@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <h1>
+    <a (click)="location.back()" class="btn btn-dark fw-bolder"><i class="bi bi-arrow-left"></i></a>
+    Edit Page!
+  </h1>
+  <form #updateForm="ngForm">
+    <fieldset>
+      <legend>{{ 'edit student' | titlecase }}</legend>
+      <div class="mb-3">
+        <input type="text" name="name" class="form-control"
+          #name="ngModel" [(ngModel)]="student.name" placeholder="name"
+          required value="{{student.name}}">
+        <small class="text-danger" *ngIf="name.errors?.['required'] && (name.dirty || (updateForm.submitted))">* name is required</small>
+      </div>
+
+      <div class="mb-3">
+        <input type="text" name="email" class="form-control"
+          #email="ngModel" [(ngModel)]="student.email" placeholder="email"
+          required value="{{student.email}}">
+        <small class="text-danger" *ngIf="email.errors?.['required'] && (email.dirty || (updateForm.submitted))">* email is required</small>
+      </div>
+
+      <div class="mb-3">
+        <input type="number"  step="1" min="10" max="100" name="age"
+          #age="ngModel" class="form-control"
+          placeholder="age" [(ngModel)]="student.age" required
+          value="{{student.age}}">
+        <!-- * invalid and required handling -->
+        <!-- <small class="text-danger" *ngIf="age.errors?.['required'] && (age.dirty || (updateForm.submitted))">* age is required</small>
+        <small class="text-danger" *ngIf="age.invalid && (age.dirty || (updateForm.submitted))">* age is invalid</small> -->
+        <!-- * any error handling -->
+        <ul *ngIf="age.errors != null && updateForm.submitted" class="p-0">
+          <li class="text-danger" style="list-style: none;" *ngFor="let error of age.errors | keyvalue">
+            <small>* age rule broken: {{error.key}}</small>
+          </li>
+        </ul>
+      </div>
+
+      <button type="submit" (click)="update(updateForm, student.id)"
+        class="btn btn-primary">
+        <i class="bi bi-send-fill"></i>
+        {{'submit' | titlecase}}
+      </button>
+    </fieldset>
+  </form>
+</div>

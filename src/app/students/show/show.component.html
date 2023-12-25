@@ -1,0 +1,26 @@
+<div class="container mt-5">
+  <h1>Student id: {{ id }}</h1>
+  <a routerLink="/students" class="btn btn-primary mb-3 mt-3">display all <i
+    class="bi bi-list-ul"></i></a>
+  <table border="1" class="table table-light">
+    <tbody>
+      <tr>
+        <th class="w-50 text-end"><i class="bi bi-pencil-square me-2 link-primary" routerLink="/students/edit/{{id}}" role="button"></i> id:</th>
+        <td class="w-50 text-start">{{student.id}}</td>
+      </tr>
+      <tr>
+        <th class="w-50 text-end">name:</th>
+        <td class="w-50 text-start">{{student.name}}</td>
+      </tr>
+      <tr>
+        <th class="w-50 text-end">email:</th>
+        <td class="w-50 text-start">{{student.email}}</td>
+      </tr>
+      <tr>
+        <th class="w-50 text-end">age:</th>
+        <td class="w-50 text-start">{{student.age}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

@@ -1,0 +1,22 @@
+{
+  "students": [
+    {
+      "name": "Kimo Moh",
+      "email": "krkr.egj5@gmail.com",
+      "age": 45,
+      "id": 3
+    },
+    {
+      "name": "fsf",
+      "email": "fas",
+      "age": 48,
+      "id": 4
+    },
+    {
+      "name": "dsg",
+      "email": "gadfg",
+      "age": 90,
+      "id": 6
+    }
+  ]
+}
